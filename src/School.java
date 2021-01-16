@@ -19,11 +19,12 @@ public class School extends Place{
         }
     }
 @Override
-    boolean enter(Student student)
+    public boolean enter(Student student)
     {
         yard.enter(student);
         return true;
     }
+
     public Floor getFloor(int i) {
         return floors[i];
     }
@@ -40,6 +41,7 @@ public class School extends Place{
         for (int i = 0; i < 3; i++)
             floors[i].operate(N);
     }
+
 
 @Override
     public void print() {

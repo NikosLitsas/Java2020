@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Class extends Place{
 
     private int class_number, cclass;
@@ -32,6 +34,15 @@ public class Class extends Place{
             return true;
         }
         return false ;
+    }
+
+@Override
+    public void exit(Student student)
+    {
+        students.removeIf(student::equals);
+        System.out.println(student.getName() + " starts exiting!");
+        System.out.println(student.getName() + " exits classroom");
+        student.setNotOccupied();
     }
 
     public void operate(int N) {

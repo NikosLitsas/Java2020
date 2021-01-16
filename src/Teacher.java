@@ -5,6 +5,13 @@ public class Teacher extends Human{
         super(floornum, classnum, l, name,"Teacher");
     }
 
+    public void teacher_out(Teacher teacher)
+    {
+        teacher.setNotOccupied();
+        System.out.println("Teacher is out!");
+        teacher.printInfo();
+    }
+
     public void teach(int num) {
         tired = num * Lall;
     }

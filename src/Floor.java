@@ -38,7 +38,7 @@ public class Floor extends Place{
         }
     }
 
-    boolean enter(Student student)
+    public boolean enter(Student student)
     {
         System.out.println(student.getName() + " enters Floor");
         corridor.enter(student);

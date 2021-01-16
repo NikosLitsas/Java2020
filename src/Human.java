@@ -18,7 +18,7 @@ public class Human {
 
     }
 
-    void print()
+    public void print()
     {
         System.out.println(name+ "'s points of tiredness are " + tired);
     }
@@ -41,5 +41,10 @@ public class Human {
 
     public void setOccupied() {
         occupied = true;
+    }
+
+    public void setNotOccupied()
+    {
+        occupied = false;
     }
 }

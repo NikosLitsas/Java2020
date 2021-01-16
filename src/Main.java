@@ -56,6 +56,11 @@ public class Main {
             }
         }
 
+        for(int i = 0 ;i<numOfTeachers;i++)
+        {
+            teachers.forEach(Human::setOccupied);
+        }
+
         while(!students.isEmpty())  //check for students that cant enter
         {
             int m = new Random().nextInt(students.size());
@@ -72,34 +77,41 @@ public class Main {
             school.getStairs().enter(stud);
         }
 
-        for(int j = 0; j < 3; j++) {
+        for(int i = 0; i < 3; i++) {
             //while(school.getStairs().getStudents().isEmpty())
             for (Student student : school.getStairs().getStudents()) {
-                if (student.getNumOfFloor() == j + 1) {
+                if (student.getNumOfFloor() == i + 1) {
                     school.getStairs().exit(student);
-                    school.getFloor(j).enter(student);
+                    school.getFloor(i).enter(student);
                 }
             }
 
             for (int k = 0; k < 6; k++) {
-                for (Student student : school.getFloor(j).getStudents()) {
+                for (Student student : school.getFloor(i).getStudents()) {
                     if (student.getNumOfClass() == k + 1) {
-                        if (school.getFloor(j).getClasses(k + 1).enter(student))
-                            school.getFloor(j).getCorridor().exit(student);
+                        if (school.getFloor(i).getClasses(k + 1).enter(student))
+                            school.getFloor(i).getCorridor().exit(student);
                         else
                             break;
                     }
                 }
             }
         }
-
-        for(int i = 0 ;i<numOfTeachers;i++)
-        {
-            teachers.forEach(Human::setOccupied);
-        }
-
         school.operate(n) ;
         school.print() ;
+
+        for(int i=0;i<3;i++) {
+            for (int j = 0; j < 6; j++) {
+                school.getFloor(i).getClasses(j+1).empty();
+                int p = new Random().nextInt(teachers.size());
+                Teacher teacher = teachers.get(p);
+                teacher.setNotOccupied();
+            }
+            school.getFloor(i).getCorridor().empty();
+        }
+        school.getStairs().empty();
+        school.getYard().empty();
+        school.print();
     }
 
 
