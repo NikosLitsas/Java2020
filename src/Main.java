@@ -79,7 +79,6 @@ public class Main {
 
 
         for(int i = 0; i < 3; i++) {
-            //for (Student student : school.getStairs().getStudents()) {
             for (int j=0; j<school.getStairs().getStudents().size(); j++)
             {
                 Student student = school.getStairs().getStudents().get(j);
