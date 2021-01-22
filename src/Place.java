@@ -41,7 +41,7 @@ public class Place
         students.removeIf(student::equals);
         System.out.println(student.getName() + " exits " + place);
     }
-
+/*
     public void empty() {
         while (!students.isEmpty()) {
             int m = new Random().nextInt(getStudents().size());
@@ -49,7 +49,7 @@ public class Place
             exit(student);
         }
     }
-
+*/
 
     public ArrayList<Student> getStudents() {
         return students;

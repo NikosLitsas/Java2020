@@ -22,7 +22,7 @@ public class Main {
 
         Random rand = new Random();
 
-        int numOfStudents = cclass*2;
+        int numOfStudents = cclass*25;
         int numOfTeachers = 18 ;
 
 
@@ -64,17 +64,17 @@ public class Main {
         while(!students.isEmpty())  //check for students that can enter
         {
             int m = new Random().nextInt(students.size());
-            Student stud = students.get(m);
-            school.enter(stud);
+            Student student = students.get(m);
+            school.enter(student);
             students.remove(m);
         }
 
         while(!school.getYard().getStudents().isEmpty())
         {
             int m = new Random().nextInt(school.getYard().getStudents().size());
-            Student stud = school.getYard().getStudents().get(m);
-            school.getYard().exit(stud);
-            school.getStairs().enter(stud);
+            Student student = school.getYard().getStudents().get(m);
+            school.getYard().exit(student);
+            school.getStairs().enter(student);
         }
 
 
@@ -86,6 +86,7 @@ public class Main {
                 if (student.getNumOfFloor() == i + 1) {
                     school.getStairs().exit(student);
                     school.getFloor(i).enter(student);
+                    j--;
                 }
             }
 
@@ -99,6 +100,7 @@ public class Main {
                             school.getFloor(i).getCorridor().exit(student);
                         else
                             break;
+                        j--;
                     }
                 }
             }
@@ -107,6 +109,45 @@ public class Main {
         school.operate(n) ;
         school.print() ;
 
+        for(int i = 0; i < 3; i++) {
+            for (int k = 0; k < 6; k++) {
+                for (int j=0; j<school.getFloor(i).getClasses(k+1).getStudents().size(); j++)
+                {
+                    Student student = school.getFloor(i).getClasses(k+1).getStudents().get(j);
+                    school.getFloor(i).getClasses(k+1).exit(student);
+                    school.getFloor(i).getCorridor().enter(student);
+                    j--;
+                }
+            }
+
+            for (int j=0; j<school.getFloor(i).getCorridor().getStudents().size(); j++)
+            {
+                Student student = school.getFloor(i).getCorridor().getStudents().get(j);
+                school.getFloor(i).getCorridor().exit(student);
+                school.getStairs().enter(student);
+                j--;
+            }
+        }
+
+        while(!school.getStairs().getStudents().isEmpty())
+        {
+            int m = new Random().nextInt(school.getStairs().getStudents().size());
+            Student student = school.getStairs().getStudents().get(m);
+            school.getStairs().exit(student);
+            school.getYard().enter(student);
+        }
+
+        while(!school.getYard().getStudents().isEmpty())  //check for students that can enter
+        {
+            int m = new Random().nextInt(school.getYard().getStudents().size());
+            Student student = school.getYard().getStudents().get(m);
+            school.getYard().exit(student);
+            students.add(student);
+        }
+
+        school.print();
+
+        /*
         for(int i=0;i<3;i++) {
             for (int j = 0; j < 6; j++) {
                 school.getFloor(i).getClasses(j+1).empty();
@@ -118,7 +159,8 @@ public class Main {
         }
         school.getStairs().empty();
         school.getYard().empty();
-        school.print();
+         */
+
     }
 
     static String generateName()

@@ -14,10 +14,6 @@ public class Human {
         printInfo();
     }
 
-    public Human() {
-
-    }
-
     public void print()
     {
         System.out.println(name+ "'s points of tiredness are " + tired);
