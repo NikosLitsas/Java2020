@@ -24,9 +24,10 @@ public class Class extends Place{
         teacher.print();
     }
 
+@Override
     public boolean enter(Student student)
     {
-        if(getStudents().size()==cclass)
+        if(students.size()!=cclass)
         {
             students.add(student) ;
             System.out.println(student.getName()+ " enters classroom");

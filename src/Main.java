@@ -77,9 +77,12 @@ public class Main {
             school.getStairs().enter(stud);
         }
 
+
         for(int i = 0; i < 3; i++) {
-            //while(school.getStairs().getStudents().isEmpty())
-            for (Student student : school.getStairs().getStudents()) {
+            //for (Student student : school.getStairs().getStudents()) {
+            for (int j=0; j<school.getStairs().getStudents().size(); j++)
+            {
+                Student student = school.getStairs().getStudents().get(j);
                 if (student.getNumOfFloor() == i + 1) {
                     school.getStairs().exit(student);
                     school.getFloor(i).enter(student);
@@ -87,16 +90,21 @@ public class Main {
             }
 
             for (int k = 0; k < 6; k++) {
-                for (Student student : school.getFloor(i).getStudents()) {
+                //for (Student student : school.getFloor(i).getCorridor().getStudents()) {
+                for (int j=0; j<school.getFloor(i).getCorridor().getStudents().size(); j++)
+                {
+                    Student student = school.getFloor(i).getCorridor().getStudents().get(j);
                     if (student.getNumOfClass() == k + 1) {
-                        if (school.getFloor(i).getClasses(k + 1).enter(student))
+                        if (school.getFloor(i).getClasses(k+1).enter(student))
                             school.getFloor(i).getCorridor().exit(student);
                         else
                             break;
                     }
                 }
             }
+            school.getStairs().print();
         }
+
         school.operate(n) ;
         school.print() ;
 
@@ -114,7 +122,6 @@ public class Main {
         school.print();
     }
 
-
     static String generateName()
         {
             String AlphaString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -127,3 +134,4 @@ public class Main {
             return s.toString();
         }
 }
+

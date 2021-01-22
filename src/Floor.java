@@ -38,6 +38,7 @@ public class Floor extends Place{
         }
     }
 
+@Override
     public boolean enter(Student student)
     {
         System.out.println(student.getName() + " enters Floor");
