@@ -22,7 +22,7 @@ public class Main {
 
         Random rand = new Random();
 
-        int numOfStudents = cclass*2;
+        int numOfStudents = cclass*25;
         int numOfTeachers = 18 ;
 
 
@@ -79,13 +79,13 @@ public class Main {
 
 
         for(int i = 0; i < 3; i++) {
-            //for (Student student : school.getStairs().getStudents()) {
             for (int j=0; j<school.getStairs().getStudents().size(); j++)
             {
                 Student student = school.getStairs().getStudents().get(j);
                 if (student.getNumOfFloor() == i + 1) {
                     school.getStairs().exit(student);
                     school.getFloor(i).enter(student);
+                    j--;
                 }
             }
 
@@ -99,6 +99,7 @@ public class Main {
                             school.getFloor(i).getCorridor().exit(student);
                         else
                             break;
+                        j--;
                     }
                 }
             }
