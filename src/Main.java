@@ -143,7 +143,7 @@ public class Main {
             school.getYard().exit(student);
             students.add(student);
         }
-
+        System.out.println();
         school.print();
 
         /*
