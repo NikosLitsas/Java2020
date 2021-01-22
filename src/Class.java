@@ -6,10 +6,9 @@ public class Class extends Place{
     private Teacher teacher;
 
     public Class(int cclass,int i) {
-        super.place = "Class";
+        super("Class");
         this.class_number = i;
         this.cclass = cclass;
-        System.out.println("A Class has been created");
     }
 
 @Override

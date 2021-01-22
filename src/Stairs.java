@@ -1,5 +1,6 @@
 public class Stairs extends Place{
-    public Stairs() {
-        super.place = "Stairs";
+    public Stairs()
+    {
+        super("Stairs");
     }
 }

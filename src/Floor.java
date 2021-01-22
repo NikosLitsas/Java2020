@@ -3,18 +3,17 @@ public class Floor extends Place{
     private Corridor corridor;
     private Class[] classesSenior = new Class[3];
     private Class[] classesJunior = new Class[3];
-    private int cclass,j ;
+    private int j ;
 
     public Floor(int cclass,int j){
+        super("Floor");
         corridor = new Corridor();
-        this.cclass = cclass;
         this.j = j+1;
         for(int i=0;i<3;i++)
         {
-            classesSenior[i] = new Class(this.cclass,i+1) ;
-            classesJunior[i] = new Class(this.cclass,i+4) ;
+            classesSenior[i] = new Class(cclass,i+1) ;
+            classesJunior[i] = new Class(cclass,i+4) ;
         }
-        System.out.println("A Floor has been created");
     }
 
     @Override

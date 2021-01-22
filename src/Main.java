@@ -61,7 +61,7 @@ public class Main {
             teachers.forEach(Human::setOccupied);
         }
 
-        while(!students.isEmpty())  //check for students that cant enter
+        while(!students.isEmpty())  //check for students that can enter
         {
             int m = new Random().nextInt(students.size());
             Student stud = students.get(m);
@@ -102,7 +102,6 @@ public class Main {
                     }
                 }
             }
-            school.getStairs().print();
         }
 
         school.operate(n) ;

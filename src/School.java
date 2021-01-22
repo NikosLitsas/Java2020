@@ -7,7 +7,7 @@ public class School extends Place{
     private Stairs stairs;
 
     public School(int cclass) {
-        super();
+        super("School");
 
         System.out.println("A new School has been created");
 

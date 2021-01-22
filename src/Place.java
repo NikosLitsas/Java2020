@@ -10,19 +10,12 @@ public class Place
     protected ArrayList<Student> students = new ArrayList<>();
 
     String place;
-    int cap;
 
-
-    public Place(String place, int cap) {
-        this.place = place;
-        this.cap = cap;
-    }
 
     public Place(String place) {
         this.place = place;
-    }
 
-    public Place() {
+        System.out.println("A "+place+" has been created");
     }
 
     public void print()
